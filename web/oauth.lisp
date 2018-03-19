@@ -16,9 +16,9 @@
 (defun token-expired-p (&optional (storage *token-storage*))
   (unless *token-storage*
     (error "*TOKEN-STORAGE* is not initialised"))
-  (and (not (dm:hull-p *token-storage*))
-       (dm:field storage 'expire-time)
-       (<= (get-universal-time) (dm:field storage 'expire-time))))
+  (not (and (not (dm:hull-p *token-storage*))
+            (dm:field storage 'expire-time)
+            (< (dm:field storage 'expire-time) (get-universal-time)))))
 
 (defun get-tokens (authorization-code)
   (when authorization-code
