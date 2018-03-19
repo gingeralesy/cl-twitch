@@ -58,24 +58,18 @@
                 (hash-table data)
                 (flexi-streams:flexi-io-stream
                  (setf (flexi-streams:flexi-stream-external-format data) :utf-8)
-                 (yason:parse data)))))
+                 (yason:parse data))))
+        (storage *token-storage*))
     (setf
-     ;; Access Token
-     (dm:field *token-storage* 'access-token)
-     (or* (gethash "access_token" data)
-          (dm:field *token-storage* 'access-token))
-     ;; Refresh Token
-     (dm:field *token-storage* 'refresh-token)
-     (or* (gethash "refresh_token" data)
-          (dm:field *token-storage* 'refresh-token))
-     ;; Expires In
-     (dm:field *token-storage* 'expire-time)
-     (if (gethash "expires_in" data)
-         (+ (gethash "expires_in" data)
-            (get-universal-time))
-         (dm:field *token-storage* 'expire-time))
-     ;; Scope
-     (dm:field *token-storage* 'scope)
-     (or* (gethash "scope" data)
-          (dm:field *token-storage* 'scope)))))
+     (dm:field storage 'access-token) (or* (gethash "access_token" data)
+                                           (dm:field storage 'access-token))
+     (dm:field storage 'refresh-token) (or* (gethash "refresh_token" data)
+                                            (dm:field storage 'refresh-token))
+     (dm:field storage 'expire-time) (if (gethash "expires_in" data)
+                                         (+ (gethash "expires_in" data)
+                                            (get-universal-time))
+                                         (dm:field storage 'expire-time))
+     (dm:field storage 'scope) (or* (gethash "scope" data)
+                                    (dm:field storage 'scope)))
+    (dm:save storage)))
 
