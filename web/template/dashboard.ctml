@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>TwitchBot 9000</title>
+  </head>
+  <body>
+    <header>
+      <h1>TwitchBot 9000</h1>
+    </header>
+    <main>
+      <a href="#" lquery="(attr :href tokens-url)">Get them tokens!</a>
+    </main>
+    <footer>
+    </footer>
+  </body>
+</html>
