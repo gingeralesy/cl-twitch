@@ -4,8 +4,8 @@
 
 (define-page index "twitchbot/$" (:clip "dashboard.ctml")
   (r-clip:process
-   T :tokens-url
-   (format NIL +auth-uri-format+ (client-id) (redirect-url) (scope))))
+   T
+   :tokens-url (format NIL +auth-uri-format+ (client-id) (redirect-url) (scope))))
 
 (define-page oauth "twitchbot/oauth" ()
   (get-tokens (post/get "code"))
