@@ -12,6 +12,7 @@
                :cl-twitch
                :crypto-shortcuts)
   :components ((:file "package")
+               (:file "conditions")
                (:file "config")
                (:file "oauth")
                (:file "web")))
