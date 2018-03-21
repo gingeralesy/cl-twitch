@@ -8,6 +8,7 @@
                (:interface :auth)
                (:interface :profile)
                :r-data-model
+               :r-simple-admin
                :r-clip
                :cl-twitch
                :crypto-shortcuts)
@@ -15,4 +16,5 @@
                (:file "conditions")
                (:file "config")
                (:file "oauth")
+               (:file "admin")
                (:file "web")))
