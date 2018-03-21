@@ -11,4 +11,4 @@
                :for
                :verbose)
   :components ((:file "package")
-               (:file "bot")))
+               (:file "client")))

@@ -4,10 +4,13 @@
   :defsystem-depends-on (:radiance)
   :class "radiance:virtual-module"
   :depends-on ((:interface :database)
-               :cl-twitch
-               :radiance
+               (:interface :user)
+               (:interface :auth)
+               (:interface :profile)
                :r-data-model
-               :r-clip)
+               :r-clip
+               :cl-twitch
+               :crypto-shortcuts)
   :components ((:file "package")
                (:file "config")
                (:file "oauth")

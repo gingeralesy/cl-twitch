@@ -2,6 +2,12 @@
 
 (defparameter *server-address* "irc.chat.twitch.tv")
 
+(defvar *client* NIL)
+
+(defun client ()
+  *client*)
+
+
 (defclass chat-client ()
   ((username :initarg :username :accessor username)
    (password :initarg :password :accessor password)
@@ -21,3 +27,13 @@
                                                         twitch.tv/commands
                                                         twitch.tv/membership))
                            :maiden-commands))))
+
+(defun start (name password channel &optional (server *server-address*))
+  (unless *client*
+    (let ((client (make-instance 'chat-client :username name
+                                              :password password
+                                              :channel channel
+                                              :server server)))
+      (maiden:start client)
+      (setf *client* client)
+      client)))
