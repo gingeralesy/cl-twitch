@@ -1,12 +1,6 @@
 (in-package #:cl-twitch)
 
-(defparameter *nickname* "gingeralesy")
-
 (defparameter *server-address* "irc.chat.twitch.tv")
-
-(defparameter *client-id* "bqyhli5uhnrgk243a5h34uk7qxkwwy")
-
-(defparameter *client-secret* "hkisl4ngng9cplsyw7rcui37dvv37l")
 
 (defparameter *redirect-uri* "http://localhost:8080/!/twitchbot/oauth")
 

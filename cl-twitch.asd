@@ -14,5 +14,8 @@
                :verbose
                :local-time)
   :components ((:file "package")
+               (:file "credentials")
                (:file "db")
-               (:file "client")))
+               (:file "api")
+               (:file "client")
+               (:file "shoutout")))
