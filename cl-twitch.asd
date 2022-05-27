@@ -5,10 +5,14 @@
                :flexi-streams
                :drakma
                :yason
+               :sqlite
                :maiden
                :maiden-irc
                :maiden-commands
+               :trivial-features
                :for
-               :verbose)
+               :verbose
+               :local-time)
   :components ((:file "package")
+               (:file "db")
                (:file "client")))
